@@ -1,7 +1,29 @@
 {
-  "homepage": "index.html",
+  "homepage": "http://index.html",
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "esm": "^3.2.25"
   },
-  "type": "module"
+  "type": "module",
+  "name": "handlehelt",
+  "description": "Website and tool for acquiring groceries more efficiently",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seaweedbeard/handlehelt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seaweedbeard/handlehelt/issues"
+  },
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
 }
