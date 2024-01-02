@@ -6,17 +6,13 @@ fetch('secrets.env')
     for (const line of envLines) {
       const [key, value] = line.split('=');
       if (key && value) {
-        // Set environment variables in the browser's global scope (window)
         window[key.trim()] = value.trim();
       }
     }
 
-    // Now, you can access API_KEY like this:
-    const API_KEY = window.API_KEY;
-// Initialize Firebase and fetch data after the SDK is fully loaded
     function initializeFirebaseAndFetchData() {
       const firebaseConfig = {
-        apiKey: API_KEY,
+        apiKey: window.API_KEY,
         authDomain: "handlehelt.firebaseapp.com",
         projectId: "handlehelt",
         storageBucket: "handlehelt.appspot.com",
@@ -26,10 +22,8 @@ fetch('secrets.env')
       };
       
       firebase.initializeApp(firebaseConfig);
-      // Reference to the database
       const database = firebase.database();
       const dbRef = database.ref('/butikker/kiwi/produkter/kategorier');
-      // Fetch data
       dbRef.once('value')
         .then((snapshot) => {
           const data = snapshot.val();
