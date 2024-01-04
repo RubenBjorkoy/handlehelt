@@ -1,9 +1,25 @@
 const path = require('path');
 
 module.exports = {
-  entry: './main.js',
+  entry: './src/index.tsx', // Initial file to bundle
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   output: {
+    // Output file: ./public/bundle.js
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+  },
+  // Makes original source code available to the browser for easier identification of error causes.
+  devtool: 'source-map',
+  module: {
+    rules: [
+      {
+        // Use babel to parse .tsx files in the src folder
+        test: /\.tsx$/,
+        include: path.resolve(__dirname, 'src'),
+        use: ['babel-loader'],
+      },
+    ],
   },
 };
