@@ -1,1 +1,4 @@
 classes should probably not be here, folder-structure feels a bit weird...
+
+data-structure-issue: should the products be stored in each Store (i like this idea better), or the catalouge be in Chain
+^should actually just be retrieved idiomatically (?) from db
