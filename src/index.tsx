@@ -7,8 +7,6 @@ import HomePage from './components/homepage.tsx';
 import rdbService from './services/RDB-service';
 import reportWebVitals from './reportWebVitals';
 
-require('dotenv').config({ path: '../.env' });
-
 
 let root = document.getElementById("root");
 if (root)

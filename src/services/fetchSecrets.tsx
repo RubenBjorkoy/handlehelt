@@ -2,10 +2,6 @@ import os from 'os';
 
 class FetchSecrets {
 
-    constructor() {
-        FetchSecrets.fetchSecret = FetchSecrets.fetchSecret.bind(FetchSecrets);
-    }
-
     public static async fetchSecret(secret: string) {
         const env = require('../.env');
         fetch(env)
