@@ -4,7 +4,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom';
 import { createRoot } from "react-dom/client";
 import HomePage from './components/homepage.tsx';
-import rdbService from './services/RDB-service';
 import reportWebVitals from './reportWebVitals';
 
 
