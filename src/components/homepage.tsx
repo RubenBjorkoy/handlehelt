@@ -20,6 +20,15 @@ class HomePage extends Component {
     return (
       <div className="container">
         <Card title="Coming Soon"></Card>
+        <Form.Label>Form Header??</Form.Label>
+        <Form.Input
+          type="text"
+          style={{ width: "20vw" }}
+          value="test"
+          onChange={(event) => {
+            console.log(event.target.value);
+          }}
+        />
       </div>
     );
   }
