@@ -4,4 +4,5 @@ class SundayStore extends Store {
   //if we spesifically want to find only sunday stores,
   //we just search based on class, not on an arbitrary time-object inside each store-object. cleaner code.
   //this means the class serves a purpose, even though it is seemingly empty. Polymorphism, bitch!
+  //implicit parental constructor-call? sweet
 }
