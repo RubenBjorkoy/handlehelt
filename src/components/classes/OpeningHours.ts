@@ -5,13 +5,6 @@ class OpeningHours {
   private readonly endHour: number;
   private readonly endMinute: number;
 
-  /**
-   * constructor
-   * @param {number} startHour the hour the store opens
-   * @param {number} startMinute the minute the store opens
-   * @param {number} endHour the hour the store closes
-   * @param {number} endMinute the minute the store closes
-   */
   constructor(
     startHour: number,
     startMinute: number,
@@ -23,12 +16,7 @@ class OpeningHours {
     this.endHour = endHour;
     this.endMinute = endMinute;
   }
-  /**
-   * isWithinHours
-   * @param hour - the hour to check
-   * @param minute - the minute to check
-   * @returns true if the time is within the opening hours, false otherwise
-   */
+
   public isWithinHours(hour: number, minute: number): boolean {
     if (hour < this.startHour || hour > this.endHour) {
       return false;
@@ -40,10 +28,6 @@ class OpeningHours {
     return true;
   }
 
-  /**
-   * toString
-   * @returns {String} a string representation of the opening hours
-   */
   public toString(): String {
     return `${this.startHour}:${this.startMinute} - ${this.endHour}:${this.endMinute}`;
   }

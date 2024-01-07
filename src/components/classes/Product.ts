@@ -1,5 +1,5 @@
 class Product {
-  //note: the product is spesific, not generic. synonymous with skew, not product-type.
+  //note: the product is spesific, not generic. synonymous with skew, not product-type. The generic is the Category.
   public readonly id: number;
   public readonly name: string;
   public readonly category: Category<Product>;
