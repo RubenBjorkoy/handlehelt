@@ -1,5 +1,13 @@
+import React, { useEffect } from 'react';
 import firebase from 'firebase/compat/app';
+import initializeApp from 'firebase/compat/app';
 import 'firebase/compat/database';
+import FetchSecrets from './fetchSecrets.tsx';
+
+// firebase.signInAnonymously().catch((error) => {
+//   // Handle Errors here.
+//   console.error('Error signing in anonymously:', error);
+// });
 
 //!Ugly ass function that NEEDS a rework. 
 //!Also needs actual validation
@@ -7,21 +15,12 @@ import 'firebase/compat/database';
 
 class RDBservice {
   async fetchRDB() {
-    // Fetch and parse the .env file
-    return fetch('../secrets.env')
-      .then((response) => response.text())
-      .then(async (envContent) => {
-        const envLines = envContent.split('\n');
-        for (const line of envLines) {
-          const [key, value] = line.split('=');
-          if (key && value) {
-            // Set environment variables in the browser's global scope (window)
-            window[key.trim()] = value.trim();
-          }
-        }
-
-        // Now, you can access API_KEY like this:
-        const API_KEY = window.API_KEY;
+    let API_KEY = "";
+      FetchSecrets.fetchSecret('API_KEY')
+        .then(apiKey => {
+          console.log(apiKey);
+          API_KEY = apiKey;
+        });
     // Initialize Firebase and fetch data after the SDK is fully loaded
         async function initializeFirebaseAndFetchData() {
           const firebaseConfig = {
@@ -34,7 +33,7 @@ class RDBservice {
             databaseURL: "https://handlehelt-default-rtdb.europe-west1.firebasedatabase.app"
           };
           
-          firebase.initializeApp(firebaseConfig);
+          const app = initializeApp(firebaseConfig);
           // Reference to the database
           const database = firebase.database();
           const dbRef = database.ref('/butikker/kiwi/produkter/kategorier');
@@ -50,8 +49,8 @@ class RDBservice {
           }
         }
         const data = await initializeFirebaseAndFetchData();
+        console.log(data);
         return data;
-    });
   }
 }
 
