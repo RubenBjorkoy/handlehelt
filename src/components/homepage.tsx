@@ -6,6 +6,10 @@ import rdbService from "../services/RDB-service.js";
 
 const history = createHashHistory();
 
+interface SearchState {
+  value: string;
+}
+
 class HomePage extends Component {
   async mounted() {
     try {
@@ -14,21 +18,32 @@ class HomePage extends Component {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+
     return 0;
   }
+
+  searchState: SearchState = {
+    value: "",
+  };
+
   render() {
     return (
       <div className="container">
         <Card title="Coming Soon"></Card>
-        <Form.Label>Form Header??</Form.Label>
-        <Form.Input
-          type="text"
-          style={{ width: "20vw" }}
-          value="test"
-          onChange={(event) => {
-            console.log(event.target.value);
-          }}
-        />
+        <Column>
+          <Form.Label>Form Header??</Form.Label>
+        </Column>
+        <Column>
+          <Form.Input
+            type="text"
+            style={{ width: "20vw" }}
+            value={this.searchState.value}
+            onChange={(event) => {
+              this.searchState.value = event.target.value;
+              console.log(event.target.value);
+            }}
+          />
+        </Column>
       </div>
     );
   }
