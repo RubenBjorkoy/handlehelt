@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
 import firebase from 'firebase/compat/app';
-import initializeApp from 'firebase/compat/app';
 import 'firebase/compat/database';
 import "firebase/compat/auth";
 
