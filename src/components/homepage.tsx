@@ -10,8 +10,13 @@ class HomePage extends Component {
 
     async mounted() {
         try {
-            const data = await rdbService.fetchRDB();
+            const stores = await rdbService.fetchAllStores();
+            console.log('Fetched stores:', Object.keys(stores));
+            const storeNames = Object.keys(stores);
+            const data = await rdbService.fetchStore(storeNames[0]);
             console.log('Fetched data:', data);
+            const data2 = await rdbService.fetchStore(storeNames[1]);
+            console.log('Fetched data:', data2);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
