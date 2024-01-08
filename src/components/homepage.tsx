@@ -44,6 +44,11 @@ class HomePage extends Component {
             }}
           />
         </Column>
+        <Column>
+          <Button.Light onClick={() => console.log("clicked")}>
+            //how the fuck do i style this thing?? button?
+          </Button.Light>
+        </Column>
       </div>
     );
   }
