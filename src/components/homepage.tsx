@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { Component } from "react-simplified";
 import { Card, Row, Column, Form, Button } from "../widgets.tsx";
 import { createHashHistory } from "history";
@@ -7,7 +7,6 @@ import rdbService from '../services/RDB-service.tsx';
 const history = createHashHistory();
 
 class HomePage extends Component {
-
     async mounted() {
         try {
             const stores = await rdbService.fetchAllStores();
@@ -30,8 +29,15 @@ class HomePage extends Component {
             </div>
         );
     }
-
-    
+    return 0;
+  }
+  render() {
+    return (
+      <div className="container">
+        <Card title="Coming Soon"></Card>
+      </div>
+    );
+  }
 }
 
 export default HomePage;
