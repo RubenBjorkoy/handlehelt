@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component } from "react-simplified";
 import { Card, Row, Column, Form, Button } from "../widgets.tsx";
 import { createHashHistory } from "history";
-import rdbService from '../services/RDB-service.tsx';
+import rdbService from "../services/RDB-service.tsx";
 
 const history = createHashHistory();
 
@@ -11,29 +11,18 @@ interface SearchState {
 }
 
 class HomePage extends Component {
-    async mounted() {
-        try {
-            const stores = await rdbService.fetchAllStores();
-            console.log('Fetched stores:', Object.keys(stores));
-            const storeNames = Object.keys(stores);
-            const data = await rdbService.fetchStore(storeNames[0]);
-            console.log('Fetched data:', data);
-            const data2 = await rdbService.fetchStore(storeNames[1]);
-            console.log('Fetched data:', data2);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-        return 0;
+  async mounted() {
+    try {
+      const stores = await rdbService.fetchAllStores();
+      console.log("Fetched stores:", Object.keys(stores));
+      const storeNames = Object.keys(stores);
+      const data = await rdbService.fetchStore(storeNames[0]);
+      console.log("Fetched data:", data);
+      const data2 = await rdbService.fetchStore(storeNames[1]);
+      console.log("Fetched data:", data2);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    render() {
-        return (
-            <div className="container">
-                <Card title="Coming Soon">
-                </Card>
-            </div>
-        );
-    }
-
     return 0;
   }
 
@@ -60,8 +49,11 @@ class HomePage extends Component {
           />
         </Column>
         <Column>
-          <Button.Light onClick={() => console.log("clicked")}>
-            //how the fuck do i style this thing?? 
+          <Button.Light
+            /*how the fuck do i style this thing??*/
+            onClick={() => console.log("clicked")}
+          >
+            test? more like testosterone am i right
           </Button.Light>
         </Column>
       </div>
